@@ -107,29 +107,23 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
 
       {/* Social Links Footer */}
       <div className="mt-auto pb-8">
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center space-x-6">
           <a
             href="https://www.linkedin.com/in/javiera-almendras-villa/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-3 text-gray-600 hover:text-black transition-colors group"
+            className="p-4 rounded-full bg-gray-100 hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-110"
           >
-            <div className="p-3 rounded-full bg-gray-100 group-hover:bg-black group-hover:text-white transition-all">
-              <Linkedin size={24} />
-            </div>
-            <span className="text-lg font-medium">Connect on LinkedIn</span>
+            <Linkedin size={28} />
           </a>
           
           <a
             href="https://github.com/JavieraAlmendrasVilla"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-3 text-gray-600 hover:text-black transition-colors group"
+            className="p-4 rounded-full bg-gray-100 hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-110"
           >
-            <div className="p-3 rounded-full bg-gray-100 group-hover:bg-black group-hover:text-white transition-all">
-              <Github size={24} />
-            </div>
-            <span className="text-lg font-medium">View on GitHub</span>
+            <Github size={28} />
           </a>
         </div>
       </div>
