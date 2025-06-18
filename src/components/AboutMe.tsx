@@ -28,6 +28,17 @@ const AboutMe: React.FC = () => {
 
   const currentSection = aboutSections[currentPage];
 
+  // Function to render text with bold formatting
+  const renderTextWithBold = (text: string) => {
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return parts.map((part, index) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={index}>{part.slice(2, -2)}</strong>;
+      }
+      return part;
+    });
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
       <div className="max-w-6xl w-full">
@@ -74,11 +85,11 @@ const AboutMe: React.FC = () => {
                   {Array.isArray(currentSection.content) ? (
                     currentSection.content.map((paragraph, index) => (
                       <p key={index} className={paragraph === '' ? 'h-4' : ''}>
-                        {paragraph}
+                        {paragraph === '' ? '' : renderTextWithBold(paragraph)}
                       </p>
                     ))
                   ) : (
-                    <p>{currentSection.content}</p>
+                    <p>{renderTextWithBold(currentSection.content)}</p>
                   )}
                 </div>
               </div>

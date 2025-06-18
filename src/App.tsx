@@ -3,12 +3,17 @@ import Header from './components/Header';
 import LandingPage from './components/LandingPage';
 import ProjectDetail from './components/ProjectDetail';
 import AboutMe from './components/AboutMe';
-import { projects } from './data/projects';
-import { Project } from './types';
+import AdminPanel from './components/AdminPanel';
+import { projects as initialProjects } from './data/projects';
+import { aboutSections as initialAboutSections } from './data/about';
+import { Project, AboutSection } from './types';
 
 function App() {
   const [currentSection, setCurrentSection] = useState<'landing' | 'about' | 'projects'>('landing');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [showAdmin, setShowAdmin] = useState(false);
+  const [projects, setProjects] = useState<Project[]>(initialProjects);
+  const [aboutSections, setAboutSections] = useState<AboutSection[]>(initialAboutSections);
 
   const handleProjectSelect = (project: Project) => {
     setSelectedProject(project);
@@ -29,11 +34,20 @@ function App() {
     }
   };
 
+  const handleUpdateProjects = (updatedProjects: Project[]) => {
+    setProjects(updatedProjects);
+  };
+
+  const handleUpdateAboutSections = (updatedSections: AboutSection[]) => {
+    setAboutSections(updatedSections);
+  };
+
   return (
     <div className="min-h-screen bg-white text-black font-yanone">
       <Header 
         currentSection={currentSection}
         onNavigationChange={handleNavigationChange}
+        onAdminToggle={() => setShowAdmin(!showAdmin)}
       />
       
       <main className="pt-20">
@@ -55,6 +69,16 @@ function App() {
           />
         )}
       </main>
+
+      {showAdmin && (
+        <AdminPanel
+          projects={projects}
+          aboutSections={aboutSections}
+          onUpdateProjects={handleUpdateProjects}
+          onUpdateAboutSections={handleUpdateAboutSections}
+          onClose={() => setShowAdmin(false)}
+        />
+      )}
     </div>
   );
 }
