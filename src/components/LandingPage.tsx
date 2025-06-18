@@ -25,10 +25,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
       {/* Name and Title */}
       <div className="text-center mb-16">
         <h1 className="text-8xl md:text-9xl font-bold mb-4 tracking-tight">
-          ALEX MORGAN
+          JAVIERA ALMENDRAS VILLA
         </h1>
         <div className="w-64 h-1 bg-black mx-auto mb-6"></div>
-        <p className="text-2xl font-light text-gray-600">Data Science Professional</p>
+        <p className="text-2xl font-light text-gray-600">Data Professional</p>
       </div>
 
       {/* Projects Carousel */}
