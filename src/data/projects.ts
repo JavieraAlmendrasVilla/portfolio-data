@@ -6,7 +6,7 @@ export const projects: Project[] = [
   id: '1',
   title: 'Multilingual Dental Appointment Assistant',
   description: 'Conversational AI bot for dental clinics using LLMs and FastAPI',
-  longDescription: 'Built and deplyed a multilingual dental appointment assistant using FastAPI, LangChain, and a locally hosted large language model (Qwen 2.5). The bot understands natural language queries in multiple languages, extracts structured data, and manages scheduling logic with full calendar integration. Leveraged Chapa API for payments and used Pinecone for vector similarity search.',
+  longDescription: 'Builing a multilingual dental appointment assistant using FastAPI, LangChain, and a locally hosted LLM (Qwen 2.5). The bot understands natural language queries in multiple languages, extracts structured data, and manages scheduling logic with full calendar integration.',
   image: 'https://images.pexels.com/photos/3845762/pexels-photo-3845762.jpeg?auto=compress&cs=tinysrgb&w=800',
 images: [
   'https://images.pexels.com/photos/3845762/pexels-photo-3845762.jpeg?auto=compress&cs=tinysrgb&w=800', // dentist-patient interaction
