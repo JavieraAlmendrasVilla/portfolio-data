@@ -1,0 +1,111 @@
+import React, { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Project } from '../types';
+
+interface LandingPageProps {
+  projects: Project[];
+  onProjectSelect: (project: Project) => void;
+}
+
+const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const projectsPerView = 3;
+  const maxIndex = Math.max(0, projects.length - projectsPerView);
+
+  const nextProjects = () => {
+    setCurrentIndex(prev => Math.min(prev + 1, maxIndex));
+  };
+
+  const prevProjects = () => {
+    setCurrentIndex(prev => Math.max(prev - 1, 0));
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col justify-center items-center px-6">
+      {/* Name and Title */}
+      <div className="text-center mb-16">
+        <h1 className="text-8xl md:text-9xl font-bold mb-4 tracking-tight">
+          ALEX MORGAN
+        </h1>
+        <div className="w-64 h-1 bg-black mx-auto mb-6"></div>
+        <p className="text-2xl font-light text-gray-600">Data Science Professional</p>
+      </div>
+
+      {/* Projects Carousel */}
+      <div className="relative w-full max-w-6xl">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-3xl font-semibold">Featured Projects</h2>
+          <div className="flex space-x-2">
+            <button
+              onClick={prevProjects}
+              disabled={currentIndex === 0}
+              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button
+              onClick={nextProjects}
+              disabled={currentIndex >= maxIndex}
+              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
+        </div>
+
+        <div className="overflow-hidden">
+          <div 
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${currentIndex * (100 / projectsPerView)}%)` }}
+          >
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                className="flex-shrink-0 w-1/3 px-4 cursor-pointer group"
+                onClick={() => onProjectSelect(project)}
+              >
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                  <div className="aspect-w-16 aspect-h-9 bg-gray-200">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-64 object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-gray-600 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+                    <div className="mt-4">
+                      <span className="inline-block bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">
+                        {project.category}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Project indicators */}
+        <div className="flex justify-center mt-8 space-x-2">
+          {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                currentIndex === index ? 'bg-black' : 'bg-gray-300 hover:bg-gray-400'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LandingPage;
