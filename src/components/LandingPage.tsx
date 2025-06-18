@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Linkedin, Github } from 'lucide-react';
 import { Project } from '../types';
 
 interface LandingPageProps {
@@ -32,7 +32,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
       </div>
 
       {/* Projects Carousel */}
-      <div className="relative w-full max-w-6xl">
+      <div className="relative w-full max-w-6xl mb-16">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-semibold">Featured Projects</h2>
           <div className="flex space-x-2">
@@ -102,6 +102,29 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
               }`}
             />
           ))}
+        </div>
+      </div>
+
+      {/* Social Links Footer */}
+      <div className="mt-auto pb-8">
+        <div className="flex items-center space-x-6">
+          <a
+            href="https://www.linkedin.com/in/javiera-almendras-villa/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-4 rounded-full bg-gray-100 hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-110"
+          >
+            <Linkedin size={28} />
+          </a>
+          
+          <a
+            href="https://github.com/JavieraAlmendrasVilla"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-4 rounded-full bg-gray-100 hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-110"
+          >
+            <Github size={28} />
+          </a>
         </div>
       </div>
     </div>
