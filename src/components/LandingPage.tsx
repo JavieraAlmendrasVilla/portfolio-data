@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Linkedin } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Linkedin, Github } from 'lucide-react';
 import { Project } from '../types';
 
 interface LandingPageProps {
@@ -105,19 +105,33 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
         </div>
       </div>
 
-      {/* LinkedIn Footer */}
+      {/* Social Links Footer */}
       <div className="mt-auto pb-8">
-        <a
-          href="https://www.linkedin.com/in/javiera-almendras-villa/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center space-x-3 text-gray-600 hover:text-black transition-colors group"
-        >
-          <div className="p-3 rounded-full bg-gray-100 group-hover:bg-black group-hover:text-white transition-all">
-            <Linkedin size={24} />
-          </div>
-          <span className="text-lg font-medium">Connect on LinkedIn</span>
-        </a>
+        <div className="flex items-center space-x-8">
+          <a
+            href="https://www.linkedin.com/in/javiera-almendras-villa/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-3 text-gray-600 hover:text-black transition-colors group"
+          >
+            <div className="p-3 rounded-full bg-gray-100 group-hover:bg-black group-hover:text-white transition-all">
+              <Linkedin size={24} />
+            </div>
+            <span className="text-lg font-medium">Connect on LinkedIn</span>
+          </a>
+          
+          <a
+            href="https://github.com/JavieraAlmendrasVilla"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-3 text-gray-600 hover:text-black transition-colors group"
+          >
+            <div className="p-3 rounded-full bg-gray-100 group-hover:bg-black group-hover:text-white transition-all">
+              <Github size={24} />
+            </div>
+            <span className="text-lg font-medium">View on GitHub</span>
+          </a>
+        </div>
       </div>
     </div>
   );
