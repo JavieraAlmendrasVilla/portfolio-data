@@ -17,9 +17,7 @@ export const aboutSections: AboutSection[] = [
     content: [
       '**M.Sc. Management and Technology** – Technical University of Munich (2024)',
       '• Major: Operations & Supply Chain, Minor: Computer Engineering',
-      '',
       '**B.Sc. International Business and Economics** – Otto von Guericke University Magdeburg (2022)',
-      '',
       '**Dental Surgeon** – Universidad de la Frontera, Chile (2014)',
       '',
       'From human anatomy to algorithms — my academic journey has taken me from clinical care to code, blending empathy with engineering.'
