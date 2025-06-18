@@ -24,7 +24,7 @@ export const aboutSections: AboutSection[] = [
       '',
       'From human anatomy to algorithms — my academic journey has taken me from clinical care to code, blending empathy with engineering.'
     ],
-    image: 'https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=800'
+    image: 'https://images.pexels.com/photos/1205651/pexels-photo-1205651.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     id: 'experience',
