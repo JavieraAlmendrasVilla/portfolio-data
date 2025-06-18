@@ -44,7 +44,8 @@ export const aboutSections: AboutSection[] = [
       '',
       '**General Dentist** – Private Practice, Chile (2015 – 2016)',
       '• Treated 500+ patients and streamlined care processes with a user-centered mindset'
-    ]
+    ],
+image: 'https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     id: 'interests',
@@ -61,6 +62,7 @@ export const aboutSections: AboutSection[] = [
       '• Neuroscience readings',
       '• Astrology and Esoteric Sciences',
       '• Traveling and exploring new cultures',
-    ]
+    ],
+image: 'https://images.pexels.com/photos/7235808/pexels-photo-7235808.jpeg?auto=compress&cs=tinysrgb&w=800'
   }
 ];
