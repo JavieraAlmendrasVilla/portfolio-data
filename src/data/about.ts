@@ -28,10 +28,10 @@ export const aboutSections: AboutSection[] = [
     id: 'experience',
     title: 'Experience',
     content: [
-      '**AI Software Developer** – InnoDent (Mar 2025 – Present)',
-      '• Leading a multilingual dental SaaS product powered by AI and voice assistants',
-      '• Building full stack: FastAPI backend + Bolt.new frontend + open-source LLMs like Qwen 2.5',
-      '• Iterating fast with MVPs hosted on Netlify and open collaboration via GitHub',
+      '**AI Developer** – Personal Project (Mar 2025 – Present)',
+      '• Devoloping a multilingual dental AI assistant',
+      '• Building backend: FastAPI + open-source LLMs like Qwen 2.5',
+
 
       '**Working Student – Data Analyst**, Experteer GmbH (Oct 2023 – Feb 2025)',
       '• Build an ETL pipeline for automated email sharing using Python (90% less manual effort)',
