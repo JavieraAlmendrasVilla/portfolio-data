@@ -5,9 +5,9 @@ export const aboutSections: AboutSection[] = [
     id: 'personal',
     title: 'Personal Information',
     content: [
-      "Hi! I'm a **Data Science professional** with a unique background that bridges software, business, and healthcare.",
+      "Hi! I'm a **Data Science professional** with a unique background that bridges data, business, and healthcare.",
       "From managing dental patients to managing data pipelines, I've always loved solving complex problems with structure and empathy.",
-      "Right now, I'm leading the development of a **multilingual dental SaaS platform** that brings together open-source LLMs, FastAPI, and a frontend built on Bolt.new — where tech meets real-world usability."
+      "Right now, I'm developmening of a **multilingual dental AI assistant** that brings together open-source LLMs, FastAPI, where tech meets real-world usability."
     ],
     image: '/src/images/CV.jpeg'
   },
@@ -34,14 +34,14 @@ export const aboutSections: AboutSection[] = [
       '• Leading a multilingual dental SaaS product powered by AI and voice assistants',
       '• Building full stack: FastAPI backend + Bolt.new frontend + open-source LLMs like Qwen 2.5',
       '• Iterating fast with MVPs hosted on Netlify and open collaboration via GitHub',
-      '',
-      '**Working Student – Data Analyst & Product Support**, Experteer GmbH (Oct 2023 – Feb 2025)',
-      '• Automated personalized email campaigns using Python (90% less manual effort)',
+
+      '**Working Student – Data Analyst**, Experteer GmbH (Oct 2023 – Feb 2025)',
+      '• Build an ETL pipeline for automated email sharing using Python (90% less manual effort)',
       '• Collaborated with product teams to shape ML-driven features',
-      '',
+
       '**Data Clerk** – UPS Germany (2021 – 2023)',
       '• Maintained clean, compliant shipment data across European hubs',
-      '',
+
       '**General Dentist** – Private Practice, Chile (2015 – 2016)',
       '• Treated 500+ patients and streamlined care processes with a user-centered mindset'
     ],
