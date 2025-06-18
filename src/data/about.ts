@@ -9,7 +9,7 @@ export const aboutSections: AboutSection[] = [
       "From managing dental patients to managing data pipelines, I've always loved solving complex problems with structure and empathy.",
       "Right now, I'm developmening of a **multilingual dental AI assistant** that brings together open-source LLMs, FastAPI, where tech meets real-world usability."
     ],
-    image: '/src/images/CV.jpeg'
+    image: 'https://images.pexels.com/photos/3746957/pexels-photo-3746957.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     id: 'education',
