@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, Save, Edit3, X, Plus, Trash2 } from 'lucide-react';
+import { Upload, Save, Edit3, X, Plus, Trash2, AlertCircle } from 'lucide-react';
 import { Project, AboutSection } from '../types';
 
 interface AdminPanelProps {
@@ -20,6 +20,8 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
   const [activeTab, setActiveTab] = useState<'projects' | 'about'>('projects');
   const [editingProject, setEditingProject] = useState<Project | null>(null);
   const [editingAbout, setEditingAbout] = useState<AboutSection | null>(null);
+  const [imageUrl, setImageUrl] = useState('');
+  const [showImageUrlInput, setShowImageUrlInput] = useState<{type: 'project' | 'about' | 'project-gallery', index?: number} | null>(null);
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>, type: 'project' | 'about', index?: number) => {
     const file = event.target.files?.[0];
@@ -44,6 +46,32 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
     reader.readAsDataURL(file);
   };
 
+  const handleImageUrlSubmit = () => {
+    if (!imageUrl.trim() || !showImageUrlInput) return;
+
+    const { type, index } = showImageUrlInput;
+    
+    if (type === 'project' && editingProject) {
+      if (index !== undefined) {
+        const newImages = [...editingProject.images];
+        newImages[index] = imageUrl;
+        setEditingProject({ ...editingProject, images: newImages });
+      } else {
+        setEditingProject({ ...editingProject, image: imageUrl });
+      }
+    } else if (type === 'project-gallery' && editingProject) {
+      setEditingProject({
+        ...editingProject,
+        images: [...editingProject.images, imageUrl]
+      });
+    } else if (type === 'about' && editingAbout) {
+      setEditingAbout({ ...editingAbout, image: imageUrl });
+    }
+
+    setImageUrl('');
+    setShowImageUrlInput(null);
+  };
+
   const saveProject = () => {
     if (!editingProject) return;
     
@@ -62,14 +90,6 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
     );
     onUpdateAboutSections(updatedSections);
     setEditingAbout(null);
-  };
-
-  const addProjectImage = () => {
-    if (!editingProject) return;
-    setEditingProject({
-      ...editingProject,
-      images: [...editingProject.images, 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800']
-    });
   };
 
   const removeProjectImage = (index: number) => {
@@ -108,6 +128,58 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
           >
             <X size={24} />
           </button>
+        </div>
+
+        {/* Image URL Input Modal */}
+        {showImageUrlInput && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-60">
+            <div className="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+              <h3 className="text-lg font-semibold mb-4">Add Image URL</h3>
+              <div className="mb-4">
+                <label className="block text-sm font-medium mb-2">Image URL</label>
+                <input
+                  type="url"
+                  value={imageUrl}
+                  onChange={(e) => setImageUrl(e.target.value)}
+                  placeholder="https://example.com/image.jpg"
+                  className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  For deployment, use external URLs (Pexels, Unsplash, etc.) or upload to image hosting services
+                </p>
+              </div>
+              <div className="flex space-x-3">
+                <button
+                  onClick={handleImageUrlSubmit}
+                  className="flex-1 bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors"
+                >
+                  Add Image
+                </button>
+                <button
+                  onClick={() => {
+                    setShowImageUrlInput(null);
+                    setImageUrl('');
+                  }}
+                  className="flex-1 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Deployment Warning */}
+        <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mx-6 mt-4">
+          <div className="flex">
+            <AlertCircle className="h-5 w-5 text-amber-400 mr-2 flex-shrink-0 mt-0.5" />
+            <div className="text-sm">
+              <p className="font-medium text-amber-800">Deployment Note:</p>
+              <p className="text-amber-700">
+                Uploaded images won't appear in deployed sites. Use external URLs (Pexels, Unsplash) or image hosting services for production.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Tabs */}
@@ -260,16 +332,25 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
                           alt="Main"
                           className="w-20 h-20 object-cover rounded-lg"
                         />
-                        <label className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg cursor-pointer transition-colors">
-                          <Upload size={16} />
-                          <span>Upload New</span>
-                          <input
-                            type="file"
-                            accept="image/*"
-                            onChange={(e) => handleImageUpload(e, 'project')}
-                            className="hidden"
-                          />
-                        </label>
+                        <div className="flex space-x-2">
+                          <button
+                            onClick={() => setShowImageUrlInput({type: 'project'})}
+                            className="flex items-center space-x-2 bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors"
+                          >
+                            <Plus size={16} />
+                            <span>Add URL</span>
+                          </button>
+                          <label className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg cursor-pointer transition-colors">
+                            <Upload size={16} />
+                            <span>Upload</span>
+                            <input
+                              type="file"
+                              accept="image/*"
+                              onChange={(e) => handleImageUpload(e, 'project')}
+                              className="hidden"
+                            />
+                          </label>
+                        </div>
                       </div>
                     </div>
 
@@ -277,11 +358,11 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
                       <div className="flex items-center justify-between mb-2">
                         <label className="block text-sm font-medium">Project Images</label>
                         <button
-                          onClick={addProjectImage}
-                          className="flex items-center space-x-1 text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded transition-colors"
+                          onClick={() => setShowImageUrlInput({type: 'project-gallery'})}
+                          className="flex items-center space-x-1 text-sm bg-black text-white px-3 py-1 rounded hover:bg-gray-800 transition-colors"
                         >
                           <Plus size={14} />
-                          <span>Add Image</span>
+                          <span>Add Image URL</span>
                         </button>
                       </div>
                       <div className="grid grid-cols-4 gap-4">
@@ -386,16 +467,25 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
                             className="w-20 h-20 object-cover rounded-lg"
                           />
                         )}
-                        <label className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg cursor-pointer transition-colors">
-                          <Upload size={16} />
-                          <span>Upload Image</span>
-                          <input
-                            type="file"
-                            accept="image/*"
-                            onChange={(e) => handleImageUpload(e, 'about')}
-                            className="hidden"
-                          />
-                        </label>
+                        <div className="flex space-x-2">
+                          <button
+                            onClick={() => setShowImageUrlInput({type: 'about'})}
+                            className="flex items-center space-x-2 bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors"
+                          >
+                            <Plus size={16} />
+                            <span>Add URL</span>
+                          </button>
+                          <label className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg cursor-pointer transition-colors">
+                            <Upload size={16} />
+                            <span>Upload</span>
+                            <input
+                              type="file"
+                              accept="image/*"
+                              onChange={(e) => handleImageUpload(e, 'about')}
+                              className="hidden"
+                            />
+                          </label>
+                        </div>
                       </div>
                     </div>
                   </div>
