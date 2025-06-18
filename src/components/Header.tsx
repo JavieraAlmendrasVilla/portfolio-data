@@ -7,7 +7,7 @@ interface HeaderProps {
   onAdminToggle: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ currentSection, onNavigationChange, onAdminToggle }) => {
+export const Header: React.FC<HeaderProps> = ({ currentSection, onNavigationChange, onAdminToggle }) => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4">
@@ -49,5 +49,3 @@ const Header: React.FC<HeaderProps> = ({ currentSection, onNavigationChange, onA
     </header>
   );
 };
-
-export default Header;

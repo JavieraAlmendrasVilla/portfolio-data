@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
+import { Header } from './components/Header';
 import LandingPage from './components/LandingPage';
 import ProjectDetail from './components/ProjectDetail';
 import AboutMe from './components/AboutMe';
