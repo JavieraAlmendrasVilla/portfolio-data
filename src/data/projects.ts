@@ -10,7 +10,7 @@ export const projects: Project[] = [
   image: 'https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800',
 images: [
 'https://images.pexels.com/photos/8566531/pexels-photo-8566531.jpeg?auto=compress&cs=tinysrgb&w=800',
-  '/src/images/chatbot.png', /
+  '/src/images/chatbot.png',
   'https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=800'
 ],
   technologies: ['FastAPI', 'LangChain', 'Qwen 2.5', 'SQL', 'Python'],
