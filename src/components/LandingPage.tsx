@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Linkedin } from 'lucide-react';
 import { Project } from '../types';
 
 interface LandingPageProps {
@@ -32,7 +32,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
       </div>
 
       {/* Projects Carousel */}
-      <div className="relative w-full max-w-6xl">
+      <div className="relative w-full max-w-6xl mb-16">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-semibold">Featured Projects</h2>
           <div className="flex space-x-2">
@@ -103,6 +103,21 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
             />
           ))}
         </div>
+      </div>
+
+      {/* LinkedIn Footer */}
+      <div className="mt-auto pb-8">
+        <a
+          href="https://www.linkedin.com/in/javiera-almendras-villa/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center space-x-3 text-gray-600 hover:text-black transition-colors group"
+        >
+          <div className="p-3 rounded-full bg-gray-100 group-hover:bg-black group-hover:text-white transition-all">
+            <Linkedin size={24} />
+          </div>
+          <span className="text-lg font-medium">Connect on LinkedIn</span>
+        </a>
       </div>
     </div>
   );
