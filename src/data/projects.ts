@@ -9,7 +9,7 @@ export const projects: Project[] = [
   longDescription: 'Builing a multilingual dental appointment assistant using FastAPI, LangChain, and a locally hosted LLM (Qwen 2.5). The bot understands natural language queries in multiple languages, extracts structured data, and manages scheduling logic with full calendar integration.',
   image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
 images: [
-  'https://images.pexels.com/photos/3845762/pexels-photo-3845762.jpeg?auto=compress&cs=tinysrgb&w=800', // dentist-patient interaction
+  'https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800', // dentist-patient interaction
   'https://images.pexels.com/photos/4269693/pexels-photo-4269693.jpeg?auto=compress&cs=tinysrgb&w=800', // smiling woman at clinic
   'https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=800'  // AI tech in healthcare
 ],
