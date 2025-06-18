@@ -5,64 +5,63 @@ export const aboutSections: AboutSection[] = [
     id: 'personal',
     title: 'Personal Information',
     content: [
-      'Hi, I\'m Alex Morgan, a passionate Data Scientist with over 6 years of experience transforming complex data into actionable insights.',
-      'I specialize in machine learning, statistical modeling, and building scalable data solutions that drive business value.',
-      'My approach combines technical expertise with business acumen to deliver solutions that make a real impact.'
+      "Hi! I'm a Data Science professional with a unique background that bridges software, business, and healthcare.",
+      "From managing dental patients to managing data pipelines, I've always loved solving complex problems with structure and empathy.",
+      "Right now, I'm leading the development of a multilingual dental SaaS platform that brings together open-source LLMs, FastAPI, and a frontend built on Bolt.new — where tech meets real-world usability."
     ],
-    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400'
+    image: '../images/CV.jpeg' // You can replace this with a personal image URL
   },
   {
     id: 'education',
     title: 'Education',
     content: [
-      'Ph.D. in Data Science - Stanford University (2018)',
-      'M.S. in Statistics - University of California, Berkeley (2015)',
-      'B.S. in Mathematics - MIT (2013)',
+      'M.Sc. Management and Technology – Technical University of Munich (2024)',
+      '• Major: Operations & Supply Chain, Minor: Computer Engineering',
       '',
-      'Relevant Coursework:',
-      '• Machine Learning and Deep Learning',
-      '• Statistical Modeling and Inference',
-      '• Optimization and Operations Research',
-      '• Database Systems and Big Data Analytics'
-    ]
+      'B.Sc. International Business and Economics – Otto von Guericke University Magdeburg (2022)',
+      '',
+      'Dental Surgeon – Universidad de la Frontera, Chile (2014)',
+      '',
+      'From human anatomy to algorithms — my academic journey has taken me from clinical care to code, blending empathy with engineering.'
+    ],
+    image: '../images/education.jpeg' // You can replace this with an education-related image URL
   },
   {
     id: 'experience',
     title: 'Experience',
     content: [
-      'Senior Data Scientist - TechCorp Inc. (2020 - Present)',
-      '• Lead a team of 5 data scientists and ML engineers',
-      '• Developed predictive models that increased revenue by $10M annually',
-      '• Built automated ML pipelines processing 100TB+ of data daily',
+      'AI Software Developer – InnoDent (Mar 2025 – Present)',
+      '• Leading a multilingual dental SaaS product powered by AI and voice assistants',
+      '• Building full stack: FastAPI backend + Bolt.new frontend + open-source LLMs like Qwen 2.5',
+      '• Iterating fast with MVPs hosted on Netlify and open collaboration via GitHub',
       '',
-      'Data Scientist - DataDriven Solutions (2018 - 2020)',
-      '• Created customer segmentation models for Fortune 500 companies',
-      '• Implemented A/B testing frameworks and statistical analysis',
-      '• Reduced model deployment time by 70% through MLOps practices',
+      'Working Student – Data Analyst & Product Support, Experteer GmbH (Oct 2023 – Feb 2025)',
+      '• Automated personalized email campaigns using Python (90% less manual effort)',
+      '• Collaborated with product teams to shape ML-driven features',
       '',
-      'Data Analyst - StartupXYZ (2016 - 2018)',
-      '• Performed exploratory data analysis and business intelligence reporting',
-      '• Built dashboards and visualization tools for stakeholders',
-      '• Collaborated with product teams to define success metrics'
+      'Data Clerk – UPS Germany (2021 – 2023)',
+      '• Maintained clean, compliant shipment data across European hubs',
+      '',
+      'General Dentist – Private Practice, Chile (2015 – 2016)',
+      '• Treated 500+ patients and streamlined care processes with a user-centered mindset'
     ]
+
   },
   {
     id: 'interests',
     title: 'Interests',
     content: [
-      'Technical Interests:',
-      '• Artificial Intelligence and Machine Learning',
-      '• Deep Learning and Neural Networks',
-      '• Natural Language Processing',
-      '• Computer Vision and Image Processing',
-      '• Big Data Technologies and Cloud Computing',
+      'Tech Interests:',
+      '• Generative AI',
+      '• LLMs and Natural Language Processing',
+      '• Human-centric Product Design',
+      '• AI automation',
       '',
       'Personal Interests:',
-      '• Photography and Digital Art',
-      '• Hiking and Mountain Climbing',
-      '• Playing Chess and Strategic Games',
-      '• Reading Science Fiction and Technology Books',
-      '• Contributing to Open Source Projects'
+      '• Intercultural communication and languages',
+      '• Neuroscience readings',
+      '• Astrology and Esoteric Sciences',
+      '• Traveling and exploring new cultures',
     ]
   }
 ];
