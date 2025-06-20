@@ -37,13 +37,13 @@ export const Header: React.FC<HeaderProps> = ({ currentSection, onNavigationChan
           </button>
 
           {/* Admin button - positioned absolutely to the right */}
-          <button
+          {/*<button
             onClick={onAdminToggle}
             className="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 text-gray-400 hover:text-black hover:bg-gray-100 rounded-full transition-all duration-300"
             title="Admin Panel"
           >
             <Settings size={20} />
-          </button>
+          </button>*/}
         </nav>
       </div>
     </header>
