@@ -63,7 +63,6 @@ image: 'https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=
       '**Personal Interests:**',
       '• Intercultural communication and languages',
       '• Neuroscience readings',
-      '• Astrology and Esoteric Sciences',
       '• Traveling and exploring new cultures',
     ],
 image: 'https://images.pexels.com/photos/7235808/pexels-photo-7235808.jpeg?auto=compress&cs=tinysrgb&w=800'

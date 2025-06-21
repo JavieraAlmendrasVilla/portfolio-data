@@ -25,7 +25,7 @@ export const projects: Project[] = [
     'https://raw.githubusercontent.com/JavieraAlmendrasVilla/portfolio-data/main/src/images/Sales.jpg',
     'https://raw.githubusercontent.com/JavieraAlmendrasVilla/portfolio-data/main/src/images/service_dashboard.jpg',
   ],
-  technologies: ['Google Looker Studio', 'Google Sheets', 'Data Visualization'],
+  technologies: ['Google Looker Studio', 'Data Visualization'],
   category: 'IBM Data Engineering',
   codeUrl: 'https://lookerstudio.google.com/s/gv50gGMZ1AM'
 },
