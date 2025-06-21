@@ -30,6 +30,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
         <div className="w-64 h-1 bg-black mx-auto mb-6"></div>
         <p className="text-2xl font-light text-gray-600 mb-3">Data Professional</p>
         <p className="text-lg text-gray-500 mb-2">M.Sc. Management & Technology</p>
+        <p className="text-lg text-gray-500 mb-2">Technical University of Munich (TUM)</p>
         <p className="text-lg text-gray-500 mb-6">Based in Germany</p>
         
         {/* Skills */}
