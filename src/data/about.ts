@@ -43,8 +43,9 @@ export const aboutSections: AboutSection[] = [
  '• Reviewed sensitive shipment data, gaining awareness of internal governance and documentation standards.',
 
 '**General Dentist** -- Private Practice, Chile (2015 - 2016)',
- '• Conducted comprehensive diagnostics and performed treatments such as fillings, crowns, root canals, and extractions.'
- '• Developed personalized treatment plans with a focus on preventive care. Educated patients on oral hygiene and managed dental emergencies.',
+ '• Conducted comprehensive diagnostics and performed treatments such as fillings, crowns, root canals, and extractions.',
+ '• Developed personalized treatment plans with a focus on preventive care.',
+'• Educated patients on oral hygiene and managed dental emergencies.',
  '• Collaborated closely with the dental team to ensure efficient, patient-centered care',
     ],
 image: 'https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=800'
