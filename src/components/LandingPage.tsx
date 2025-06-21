@@ -28,8 +28,21 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
           JAVIERA ALMENDRAS VILLA
         </h1>
         <div className="w-64 h-1 bg-black mx-auto mb-6"></div>
-        <p className="text-2xl font-light text-gray-600">Data Professional</p>
-
+        <p className="text-2xl font-light text-gray-600 mb-3">Data Professional</p>
+        <p className="text-lg text-gray-500 mb-2">M.Sc. Management & Technology</p>
+        <p className="text-lg text-gray-500 mb-6">Based in Germany</p>
+        
+        {/* Skills */}
+        <div className="flex flex-wrap justify-center gap-3 max-w-2xl mx-auto">
+          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">Python</span>
+          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">SQL</span>
+          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">R</span>
+          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">FastAPI</span>
+          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">LangChain</span>
+          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">Machine Learning</span>
+          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">Data Visualization</span>
+          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">LLMs</span>
+        </div>
       </div>
 
       {/* Projects Carousel */}
