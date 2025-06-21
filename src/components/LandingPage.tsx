@@ -29,7 +29,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
           <img
             src="https://raw.githubusercontent.com/JavieraAlmendrasVilla/portfolio-data/main/src/images/CV.jpeg"
             alt="Javiera Almendras Villa"
-            className="w-32 h-32 rounded-full mx-auto object-cover shadow-lg border-4 border-white"
+            className="w-40 h-40 rounded-full mx-auto object-cover shadow-lg"
           />
         </div>
         
