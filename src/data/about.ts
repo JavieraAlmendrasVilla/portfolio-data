@@ -20,8 +20,7 @@ export const aboutSections: AboutSection[] = [
       '• Major: Operations & Supply Chain, Minor: Computer Engineering',
       '**B.Sc. International Business and Economics** – Otto von Guericke University Magdeburg (2022)',
       '**Dental Surgeon** – Universidad de la Frontera, Chile (2014)',
-      '',
-      'From human anatomy to algorithms — my academic journey has taken me from clinical care to code, blending empathy with engineering.'
+
     ],
     image: 'https://images.pexels.com/photos/1205651/pexels-photo-1205651.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
