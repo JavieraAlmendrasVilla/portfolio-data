@@ -29,8 +29,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
         </h1>
         <div className="w-64 h-1 bg-black mx-auto mb-6"></div>
         <p className="text-2xl font-light text-gray-600">Data Professional</p>
-        <p className="text-2xl font-light text-gray-600">M.Sc Management & Technology</p>
-        <p className="text-2xl font-light text-gray-600">Based in Germany</p>
 
       </div>
 
