@@ -5,7 +5,7 @@ export const aboutSections: AboutSection[] = [
     id: 'personal',
     title: 'Personal Information',
     content: [
-      "Hi! I'm a **Data Science professional** with a unique background that bridges data, business, and healthcare.",
+      "Hi! I'm a **Data professional** with a unique background that bridges data, business, and healthcare.",
       "From managing dental patients to managing data pipelines, I've always loved solving complex problems with structure and empathy.",
       "Right now, I'm developmening of a **multilingual dental AI assistant** that brings together open-source LLMs, FastAPI, where tech meets real-world usability."
     ],
@@ -15,7 +15,7 @@ export const aboutSections: AboutSection[] = [
     id: 'education',
     title: 'Education',
     content: [
-        '** IBM Data Engineering Professional Certificate** – IBM via Coursera (Ongoing)',
+      '** IBM Data Engineering Professional Certificate** – IBM via Coursera (Ongoing)',
       '**M.Sc. Management and Technology** – Technical University of Munich (2024)',
       '• Major: Operations & Supply Chain, Minor: Computer Engineering',
       '**B.Sc. International Business and Economics** – Otto von Guericke University Magdeburg (2022)',
