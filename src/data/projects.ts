@@ -22,9 +22,8 @@ export const projects: Project[] = [
   longDescription: 'Created a two-page dashboard using Google Looker Studio to visualize performance metrics for a chain of car dealerships. The Sales page included KPIs like total profit (in millions), quantity sold, quantity sold by model, and average quantity sold, with profit by dealer visualized as a column chart. The Service page featured recall analysis per model, customer sentiment as a treemap, a combo chart showing monthly profit vs. quantity sold, and a pivot table heatmap of recalls by model and affected system. Data was connected using Google Sheets from a modified IBM dataset and exported to PDF for final presentation.',
   image: 'https://images.pexels.com/photos/2218914/pexels-photo-2218914.jpeg?auto=compress&cs=tinysrgb&w=800',
   images: [
-    'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/669619/pexels-photo-669619.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800'
+    'https://raw.githubusercontent.com/JavieraAlmendrasVilla/portfolio-data/main/src/images/Sales.jpg',
+    'https://raw.githubusercontent.com/JavieraAlmendrasVilla/portfolio-data/main/src/images/service_dashboard.jpg',
   ],
   technologies: ['Google Looker Studio', 'Google Sheets', 'Data Visualization'],
   category: 'IBM Data Engineering',
