@@ -34,7 +34,7 @@ export const projects: Project[] = [
     title: 'Oral Health Analysis by Smoking and Gender',
     description: 'Statistical analysis of dental caries using national health data',
     longDescription: 'Conducted a comprehensive statistical analysis on a public health dataset (55,692 observations) from the South Korean government, focusing on oral health indicators like dental caries and tartar. Explored relationships between gender, age, and smoking habits using Welch\'s t-test and Fisher\'s exact test. Found that men and smokers are statistically more likely to develop caries. Visualized gender imbalance, age distribution, and caries prevalence using bar plots and boxplots. Concluded a strong association between smoking and oral disease risk.',
-    image: 'https://images.pexels.com/photos/4269356/pexels-photo-4269356.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://images.pexels.com/photos/13668937/pexels-photo-13668937.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/4269356/pexels-photo-4269356.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/3845764/pexels-photo-3845764.jpeg?auto=compress&cs=tinysrgb&w=800',
