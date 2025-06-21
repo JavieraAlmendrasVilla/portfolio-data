@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Header } from './components/Header';
 import LandingPage from './components/LandingPage';
 import ProjectDetail from './components/ProjectDetail';
+import CategoryView from './components/CategoryView';
 import AboutMe from './components/AboutMe';
 import AdminPanel from './components/AdminPanel';
 import { projects as initialProjects } from './data/projects';
@@ -9,11 +10,24 @@ import { aboutSections as initialAboutSections } from './data/about';
 import { Project, AboutSection } from './types';
 
 function App() {
-  const [currentSection, setCurrentSection] = useState<'landing' | 'about' | 'projects'>('landing');
+  const [currentSection, setCurrentSection] = useState<'landing' | 'about' | 'projects' | 'category'>('landing');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [showAdmin, setShowAdmin] = useState(false);
   const [projects, setProjects] = useState<Project[]>(initialProjects);
   const [aboutSections, setAboutSections] = useState<AboutSection[]>(initialAboutSections);
+
+  // Get unique categories from projects
+  const categories = useMemo(() => {
+    const uniqueCategories = [...new Set(projects.map(project => project.category))];
+    return uniqueCategories.sort();
+  }, [projects]);
+
+  // Filter projects by selected category
+  const filteredProjects = useMemo(() => {
+    if (!selectedCategory) return projects;
+    return projects.filter(project => project.category === selectedCategory);
+  }, [projects, selectedCategory]);
 
   const handleProjectSelect = (project: Project) => {
     setSelectedProject(project);
@@ -25,12 +39,28 @@ function App() {
     setCurrentSection('landing');
   };
 
-  const handleNavigationChange = (section: 'about' | 'projects') => {
+  const handleBackToCategory = () => {
+    setSelectedProject(null);
+    if (selectedCategory) {
+      setCurrentSection('category');
+    } else {
+      setCurrentSection('landing');
+    }
+  };
+
+  const handleNavigationChange = (section: 'about' | 'projects' | 'category', category?: string) => {
     if (section === 'projects') {
       setCurrentSection('landing');
       setSelectedProject(null);
+      setSelectedCategory(null);
+    } else if (section === 'category' && category) {
+      setCurrentSection('category');
+      setSelectedCategory(category);
+      setSelectedProject(null);
     } else {
       setCurrentSection(section);
+      setSelectedProject(null);
+      setSelectedCategory(null);
     }
   };
 
@@ -48,6 +78,7 @@ function App() {
         currentSection={currentSection}
         onNavigationChange={handleNavigationChange}
         onAdminToggle={() => setShowAdmin(!showAdmin)}
+        categories={categories}
       />
       
       <main className="pt-20">
@@ -62,10 +93,19 @@ function App() {
           <AboutMe />
         )}
         
+        {currentSection === 'category' && selectedCategory && (
+          <CategoryView
+            category={selectedCategory}
+            projects={filteredProjects}
+            onProjectSelect={handleProjectSelect}
+            onBack={() => handleNavigationChange('projects')}
+          />
+        )}
+        
         {currentSection === 'projects' && selectedProject && (
           <ProjectDetail 
             project={selectedProject}
-            onBack={handleBackToLanding}
+            onBack={selectedCategory ? handleBackToCategory : handleBackToLanding}
           />
         )}
       </main>
