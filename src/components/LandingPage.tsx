@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Linkedin, Github } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Linkedin, Github, ExternalLink } from 'lucide-react';
 import { Project } from '../types';
 
 interface LandingPageProps {
@@ -61,11 +61,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="flex-shrink-0 w-1/3 px-4 cursor-pointer group"
-                onClick={() => onProjectSelect(project)}
+                className="flex-shrink-0 w-1/3 px-4 group"
               >
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                  <div className="aspect-w-16 aspect-h-9 bg-gray-200">
+                  <div 
+                    className="aspect-w-16 aspect-h-9 bg-gray-200 cursor-pointer"
+                    onClick={() => onProjectSelect(project)}
+                  >
                     <img
                       src={project.image}
                       alt={project.title}
@@ -73,16 +75,34 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-gray-600 transition-colors">
+                    <h3 
+                      className="text-xl font-semibold mb-2 group-hover:text-gray-600 transition-colors cursor-pointer"
+                      onClick={() => onProjectSelect(project)}
+                    >
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       {project.description}
                     </p>
-                    <div className="mt-4">
+                    
+                    <div className="flex items-center justify-between">
                       <span className="inline-block bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">
                         {project.category}
                       </span>
+                      
+                      {project.codeUrl && (
+                        <a
+                          href={project.codeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="flex items-center space-x-1 text-black hover:text-gray-600 transition-colors text-sm font-medium"
+                        >
+                          <Github size={16} />
+                          <span>Code</span>
+                          <ExternalLink size={12} />
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>

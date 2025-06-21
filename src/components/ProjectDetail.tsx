@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, Github, ExternalLink } from 'lucide-react';
 import { Project } from '../types';
 
 interface ProjectDetailProps {
@@ -60,6 +60,22 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 ))}
               </div>
             </div>
+
+            {/* Code Link */}
+            {project.codeUrl && (
+              <div className="mb-8">
+                <a
+                  href={project.codeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-3 bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 font-medium"
+                >
+                  <Github size={20} />
+                  <span>View Source Code</span>
+                  <ExternalLink size={16} />
+                </a>
+              </div>
+            )}
           </div>
         </div>
 

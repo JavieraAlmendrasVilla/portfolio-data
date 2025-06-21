@@ -87,7 +87,8 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
       image: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800',
       images: ['https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800'],
       technologies: ['Technology'],
-      category: 'Category'
+      category: 'Category',
+      codeUrl: 'https://github.com/username/repository'
     };
     onUpdateProjects([...projects, newProject]);
   };
@@ -217,6 +218,17 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
                           className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
                         />
                       </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Code URL</label>
+                      <input
+                        type="url"
+                        value={editingProject.codeUrl || ''}
+                        onChange={(e) => setEditingProject({ ...editingProject, codeUrl: e.target.value })}
+                        placeholder="https://github.com/username/repository"
+                        className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+                      />
                     </div>
 
                     <div>

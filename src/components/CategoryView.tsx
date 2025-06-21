@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, ArrowLeft } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowLeft, Github, ExternalLink, FolderOpen } from 'lucide-react';
 import { Project } from '../types';
 
 interface CategoryViewProps {
@@ -115,12 +115,14 @@ const CategoryView: React.FC<CategoryViewProps> = ({
               {projects.map((project) => (
                 <div
                   key={project.id}
-                  className="flex-shrink-0 w-80 cursor-pointer group"
-                  onClick={() => onProjectSelect(project)}
+                  className="flex-shrink-0 w-80 group"
                 >
                   <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 group-hover:scale-105 transform">
                     {/* Project Image */}
-                    <div className="relative h-48 bg-gray-200 overflow-hidden">
+                    <div 
+                      className="relative h-48 bg-gray-200 overflow-hidden cursor-pointer"
+                      onClick={() => onProjectSelect(project)}
+                    >
                       <img
                         src={project.image}
                         alt={project.title}
@@ -137,7 +139,10 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                         </span>
                       </div>
                       
-                      <h3 className="text-xl font-bold mb-3 group-hover:text-gray-600 transition-colors line-clamp-2">
+                      <h3 
+                        className="text-xl font-bold mb-3 group-hover:text-gray-600 transition-colors line-clamp-2 cursor-pointer"
+                        onClick={() => onProjectSelect(project)}
+                      >
                         {project.title}
                       </h3>
                       
@@ -146,7 +151,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                       </p>
                       
                       {/* Technologies */}
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 mb-4">
                         {project.technologies.slice(0, 3).map((tech, index) => (
                           <span
                             key={index}
@@ -161,6 +166,23 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                           </span>
                         )}
                       </div>
+
+                      {/* Code Link */}
+                      {project.codeUrl && (
+                        <div className="pt-4 border-t border-gray-100">
+                          <a
+                            href={project.codeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="flex items-center space-x-2 text-black hover:text-gray-600 transition-colors font-medium"
+                          >
+                            <Github size={18} />
+                            <span>View Code</span>
+                            <ExternalLink size={14} />
+                          </a>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

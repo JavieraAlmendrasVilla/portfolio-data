@@ -7,6 +7,7 @@ export interface Project {
   images: string[];
   technologies: string[];
   category: string;
+  codeUrl?: string;
 }
 
 export interface AboutSection {
