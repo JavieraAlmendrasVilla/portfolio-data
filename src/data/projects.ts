@@ -40,7 +40,7 @@ export const projects: Project[] = [
 
     ],
     technologies: ['R', 'randomForest', 'tidyverse', 'data.table', 'ggroc'],
-    category: 'Personal Project',
+    category: 'Data Science',
     codeUrl: 'https://github.com/JavieraAlmendrasVilla/Case-2-Random-Forest-Model'
   },
   {
@@ -55,9 +55,23 @@ export const projects: Project[] = [
       'https://images.pexels.com/photos/8376179/pexels-photo-8376179.jpeg?auto=compress&cs=tinysrgb&w=800'
     ],
     technologies: ['R', 'ggplot2', 'data.table', 'tidyr', 'magrittr'],
-    category: 'Personal Project',
+    category: 'Data Analytics',
     codeUrl: 'https://github.com/JavieraAlmendrasVilla/Case-1-Oral-Health-data'
-  }
+  },
+  {
+  id: '',
+  title: 'Fraud Detection Analysis with SQLite & Python',
+  description: 'Identified transaction anomalies and fraud patterns from financial data',
+  longDescription: 'Analyzed customer and merchant transaction data using Python and SQLite to detect fraudulent activity and suspicious patterns. Built a dynamic fraud analysis pipeline that flagged 45 high-risk transactions using anomaly scoring and rule-based logic. Visualized transaction trends across categories such as food, travel, and retail. Identified high-risk customer behaviors, unusual merchant activity, and customer segments prone to fraud. Leveraged SQL queries and Pandas for insight extraction, and implemented a modular script to update results with new transaction data.',
+  image: 'https://images.pexels.com/photos/6266297/pexels-photo-6266297.jpeg?auto=compress&cs=tinysrgb&w=800',
+  images: [
+    'https://images.pexels.com/photos/6266297/pexels-photo-6266297.jpeg?auto=compress&cs=tinysrgb&w=800',
+  ],
+  technologies: ['Python', 'Pandas', 'SQLite3', 'SQL'],
+  category: 'Data Analytics'
+,codeUrl: 'https://github.com/JavieraAlmendrasVilla/AntiFraudProject'
+}
+
 
 
 ];
