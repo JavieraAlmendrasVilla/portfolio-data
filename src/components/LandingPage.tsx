@@ -100,12 +100,35 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
                       {project.description}
                     </p>
                     
-                    <div className="flex items-center justify-between">
+                    {/* Category */}
+                    <div className="mb-3">
                       <span className="inline-block bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">
                         {project.category}
                       </span>
-                      
-                      {project.codeUrl && (
+                    </div>
+
+                    {/* Main Technologies */}
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-1">
+                        {project.technologies.slice(0, 3).map((tech, index) => (
+                          <span
+                            key={index}
+                            className="bg-black text-white text-xs px-2 py-1 rounded-full"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <span className="text-xs text-gray-500 px-2 py-1">
+                            +{project.technologies.length - 3}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    
+                    {/* Code Link */}
+                    {project.codeUrl && (
+                      <div className="pt-3 border-t border-gray-100">
                         <a
                           href={project.codeUrl}
                           target="_blank"
@@ -114,11 +137,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
                           className="flex items-center space-x-1 text-black hover:text-gray-600 transition-colors text-sm font-medium"
                         >
                           <Github size={16} />
-                          <span>Code</span>
+                          <span>View Code</span>
                           <ExternalLink size={12} />
                         </a>
-                      )}
-                    </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
