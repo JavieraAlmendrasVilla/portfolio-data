@@ -29,7 +29,7 @@ export const projects: Project[] = [
   technologies: ['Google Looker Studio', 'Google Sheets', 'Data Visualization'],
   category: 'IBM Data Engineering',
   codeUrl: 'https://lookerstudio.google.com/s/gv50gGMZ1AM'
-}
+},
   {
     id: '3',
     title: 'Predicting Smoking Habits with Random Forests',
