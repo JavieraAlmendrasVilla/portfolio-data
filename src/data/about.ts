@@ -15,6 +15,7 @@ export const aboutSections: AboutSection[] = [
     id: 'education',
     title: 'Education',
     content: [
+        '** IBM Data Engineering Professional Certificate** – IBM via Coursera (Ongoing)',
       '**M.Sc. Management and Technology** – Technical University of Munich (2024)',
       '• Major: Operations & Supply Chain, Minor: Computer Engineering',
       '**B.Sc. International Business and Economics** – Otto von Guericke University Magdeburg (2022)',
@@ -39,9 +40,6 @@ export const aboutSections: AboutSection[] = [
 
       '**Data Clerk** – UPS Germany (2021 – 2023)',
       '• Maintained clean, compliant shipment data across European hubs',
-
-      '**General Dentist** – Private Practice, Chile (2015 – 2016)',
-      '• Treated 500+ patients and streamlined care processes with a user-centered mindset'
     ],
 image: 'https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
