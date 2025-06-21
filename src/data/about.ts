@@ -33,27 +33,19 @@ export const aboutSections: AboutSection[] = [
       '• Building backend: FastAPI + open-source LLMs: Qwen 2.5',
 
       '**Working Student – Data Analyst**, Experteer GmbH (Oct 2023 – Feb 2025)',
-       'Contributed to ML-driven product development by cleaning, classifying, and
- analyzing job market and candidate data.',
- '• Developed an ETL pipeline in Python to automate personalized HTML email
- creation, reducing manual work by 90%.',
- '• Supported feature definition and delivery for talent-matching algorithms along
-side the product team.',
+       'Contributed to ML-driven product development by cleaning, classifying, and analyzing job market and candidate data.',
+ '• Developed an ETL pipeline in Python to automate personalized HTML email creation, reducing manual work by 90%.',
+ '• Supported feature definition and delivery for talent-matching algorithms along side the product team.',
  '• Actively collaborated with cross-functional teams.',
 
       '**Data Clerk** – UPS Germany (2021 – 2023)',
-      '• Ensured data accuracy and customs compliance across international shipments
- using OPSYS.',
- '• Reviewed sensitive shipment data, gaining awareness of internal governance and
- documentation standards.',
+      '• Ensured data accuracy and customs compliance across international shipments using OPSYS.',
+ '• Reviewed sensitive shipment data, gaining awareness of internal governance and documentation standards.',
 
-'**General Dentist** -- Private Practice, Chile (2015 - 2016)'
- '• Conducted comprehensive diagnostics and performed treatments such as fill
-ings, crowns, root canals, and extractions.'
- '• Developed personalized treatment plans with a focus on preventive care. Edu
-cated patients on oral hygiene and managed dental emergencies.'
- '• Collaborated closely with the dental team to ensure efficient, patient-centered
- care'
+'**General Dentist** -- Private Practice, Chile (2015 - 2016)',
+ '• Conducted comprehensive diagnostics and performed treatments such as fillings, crowns, root canals, and extractions.'
+ '• Developed personalized treatment plans with a focus on preventive care. Educated patients on oral hygiene and managed dental emergencies.',
+ '• Collaborated closely with the dental team to ensure efficient, patient-centered care'
     ],
 image: 'https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
