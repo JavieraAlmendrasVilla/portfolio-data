@@ -8,12 +8,12 @@ export const projects: Project[] = [
     longDescription: 'Building a multilingual dental appointment assistant using FastAPI, LangChain, and a locally hosted LLM (Qwen 2.5). The bot understands natural language queries in multiple languages, extracts structured data, and manages scheduling logic with full calendar integration.',
     image: 'https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
-      'https://images.pexels.com/photos/8566531/pexels-photo-8566531.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://raw.githubusercontent.com/JavieraAlmendrasVilla/portfolio-data/main/src/images/chatbot.png'
+
     ],
     technologies: ['FastAPI', 'LangChain', 'Qwen 2.5', 'SQL', 'Python'],
     category: 'Work in Progress',
-    codeUrl: 'https://github.com/JavieraAlmendrasVilla/dental-ai-assistant'
+    codeUrl: 'https://github.com/JavieraAlmendrasVilla/dental-management-system'
   },
 {
   id: '2',

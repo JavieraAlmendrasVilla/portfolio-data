@@ -30,15 +30,30 @@ export const aboutSections: AboutSection[] = [
     content: [
       '**AI Developer** – Personal Project (Mar 2025 – Present)',
       '• Devoloping a multilingual dental AI assistant',
-      '• Building backend: FastAPI + open-source LLMs like Qwen 2.5',
-
+      '• Building backend: FastAPI + open-source LLMs: Qwen 2.5',
 
       '**Working Student – Data Analyst**, Experteer GmbH (Oct 2023 – Feb 2025)',
-      '• Build an ETL pipeline for automated email sharing using Python (90% less manual effort)',
-      '• Collaborated with product teams to shape ML-driven features',
+       'Contributed to ML-driven product development by cleaning, classifying, and
+ analyzing job market and candidate data.',
+ '• Developed an ETL pipeline in Python to automate personalized HTML email
+ creation, reducing manual work by 90%.',
+ '• Supported feature definition and delivery for talent-matching algorithms along
+side the product team.',
+ '• Actively collaborated with cross-functional teams.',
 
       '**Data Clerk** – UPS Germany (2021 – 2023)',
-      '• Maintained clean, compliant shipment data across European hubs',
+      '• Ensured data accuracy and customs compliance across international shipments
+ using OPSYS.',
+ '• Reviewed sensitive shipment data, gaining awareness of internal governance and
+ documentation standards.',
+
+'**General Dentist** -- Private Practice, Chile (2015 - 2016)'
+ '• Conducted comprehensive diagnostics and performed treatments such as fill
+ings, crowns, root canals, and extractions.'
+ '• Developed personalized treatment plans with a focus on preventive care. Edu
+cated patients on oral hygiene and managed dental emergencies.'
+ '• Collaborated closely with the dental team to ensure efficient, patient-centered
+ care'
     ],
 image: 'https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
