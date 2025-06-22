@@ -74,7 +74,7 @@ export const projects: Project[] = [
     technologies: ['R', 'ggplot2', 'data.table', 'tidyr', 'magrittr'],
     category: 'Data Analytics',
     codeUrl: 'https://github.com/JavieraAlmendrasVilla/Case-1-Oral-Health-data',
-    featured: False
+    featured: false
   },
   {
   id: '6',
@@ -88,6 +88,6 @@ export const projects: Project[] = [
   technologies: ['Python', 'Pandas', 'SQLite3', 'SQL'],
   category: 'Data Analytics',
   codeUrl: 'https://github.com/JavieraAlmendrasVilla/AntiFraudProject',
-  featured: False
+  featured: false
 }
 ];
