@@ -77,7 +77,7 @@ const ContactForm: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-900">Email</h3>
-                    <p className="text-gray-600">javiera.almendras@example.com</p>
+                    <p className="text-gray-600">javiera.almendras.villa@gmail.com</p>
                   </div>
                 </div>
                 
@@ -114,10 +114,6 @@ const ContactForm: React.FC = () => {
                 <li className="flex items-start space-x-2">
                   <span className="w-2 h-2 bg-black rounded-full mt-2 flex-shrink-0"></span>
                   <span>Consulting and freelance projects</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <span className="w-2 h-2 bg-black rounded-full mt-2 flex-shrink-0"></span>
-                  <span>Speaking and workshop opportunities</span>
                 </li>
               </ul>
             </div>
