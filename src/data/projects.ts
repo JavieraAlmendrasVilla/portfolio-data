@@ -88,6 +88,6 @@ export const projects: Project[] = [
   technologies: ['Python', 'Pandas', 'SQLite3', 'SQL'],
   category: 'Data Analytics',
   codeUrl: 'https://github.com/JavieraAlmendrasVilla/AntiFraudProject',
-  featured: true
+  featured: False
 }
 ];
