@@ -95,25 +95,25 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
                   key={project.id}
                   className="flex-shrink-0 w-1/3 px-4 group"
                 >
-                  <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group-hover:scale-105 h-full flex flex-col">
                     <div 
-                      className="aspect-w-16 aspect-h-9 bg-gray-200 cursor-pointer"
+                      className="h-64 bg-gray-200 cursor-pointer flex-shrink-0"
                       onClick={() => onProjectSelect(project)}
                     >
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-64 object-cover"
+                        className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="p-6">
+                    <div className="p-6 flex-1 flex flex-col">
                       <h3 
-                        className="text-xl font-semibold mb-2 group-hover:text-gray-600 transition-colors cursor-pointer"
+                        className="text-xl font-semibold mb-2 group-hover:text-gray-600 transition-colors cursor-pointer line-clamp-2"
                         onClick={() => onProjectSelect(project)}
                       >
                         {project.title}
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
                         {project.description}
                       </p>
                       
@@ -145,7 +145,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
                       
                       {/* Code Link */}
                       {project.codeUrl && (
-                        <div className="pt-3 border-t border-gray-100">
+                        <div className="pt-3 border-t border-gray-100 mt-auto">
                           <a
                             href={project.codeUrl}
                             target="_blank"
@@ -196,25 +196,25 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
                 key={project.id}
                 className="group"
               >
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group-hover:scale-105 h-full flex flex-col">
                   <div 
-                    className="aspect-w-16 aspect-h-9 bg-gray-200 cursor-pointer"
+                    className="h-48 bg-gray-200 cursor-pointer flex-shrink-0"
                     onClick={() => onProjectSelect(project)}
                   >
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-48 object-cover"
+                      className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="p-6">
+                  <div className="p-6 flex-1 flex flex-col">
                     <h3 
-                      className="text-lg font-semibold mb-2 group-hover:text-gray-600 transition-colors cursor-pointer"
+                      className="text-lg font-semibold mb-2 group-hover:text-gray-600 transition-colors cursor-pointer line-clamp-2"
                       onClick={() => onProjectSelect(project)}
                     >
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
                       {project.description}
                     </p>
                     
@@ -246,7 +246,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
                     
                     {/* Code Link */}
                     {project.codeUrl && (
-                      <div className="pt-3 border-t border-gray-100">
+                      <div className="pt-3 border-t border-gray-100 mt-auto">
                         <a
                           href={project.codeUrl}
                           target="_blank"
