@@ -4,13 +4,15 @@ import LandingPage from './components/LandingPage';
 import ProjectDetail from './components/ProjectDetail';
 import CategoryView from './components/CategoryView';
 import AboutMe from './components/AboutMe';
+import ContactForm from './components/ContactForm';
+import Posts from './components/Posts';
 import AdminPanel from './components/AdminPanel';
 import { projects as initialProjects } from './data/projects';
 import { aboutSections as initialAboutSections } from './data/about';
 import { Project, AboutSection } from './types';
 
 function App() {
-  const [currentSection, setCurrentSection] = useState<'landing' | 'about' | 'projects' | 'category'>('landing');
+  const [currentSection, setCurrentSection] = useState<'landing' | 'about' | 'projects' | 'category' | 'contact' | 'posts'>('landing');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [showAdmin, setShowAdmin] = useState(false);
@@ -48,7 +50,7 @@ function App() {
     }
   };
 
-  const handleNavigationChange = (section: 'about' | 'projects' | 'category', category?: string) => {
+  const handleNavigationChange = (section: 'about' | 'projects' | 'category' | 'contact' | 'posts', category?: string) => {
     if (section === 'projects') {
       setCurrentSection('landing');
       setSelectedProject(null);
@@ -91,6 +93,14 @@ function App() {
         
         {currentSection === 'about' && (
           <AboutMe />
+        )}
+
+        {currentSection === 'contact' && (
+          <ContactForm />
+        )}
+
+        {currentSection === 'posts' && (
+          <Posts />
         )}
         
         {currentSection === 'category' && selectedCategory && (

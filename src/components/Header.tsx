@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { User, FolderOpen, Settings, ChevronDown } from 'lucide-react';
+import { User, FolderOpen, Settings, ChevronDown, Mail, FileText } from 'lucide-react';
 
 interface HeaderProps {
-  currentSection: 'landing' | 'about' | 'projects' | 'category';
-  onNavigationChange: (section: 'about' | 'projects' | 'category', category?: string) => void;
+  currentSection: 'landing' | 'about' | 'projects' | 'category' | 'contact' | 'posts';
+  onNavigationChange: (section: 'about' | 'projects' | 'category' | 'contact' | 'posts', category?: string) => void;
   onAdminToggle: () => void;
   categories: string[];
 }
@@ -90,6 +90,30 @@ export const Header: React.FC<HeaderProps> = ({
               </div>
             )}
           </div>
+
+          <button
+            onClick={() => onNavigationChange('posts')}
+            className={`flex items-center space-x-2 px-6 py-2 rounded-full transition-all duration-300 hover:bg-gray-100 ${
+              currentSection === 'posts' 
+                ? 'bg-black text-white hover:bg-gray-800' 
+                : 'text-black hover:text-gray-700'
+            }`}
+          >
+            <FileText size={20} />
+            <span className="font-medium text-lg">Posts</span>
+          </button>
+
+          <button
+            onClick={() => onNavigationChange('contact')}
+            className={`flex items-center space-x-2 px-6 py-2 rounded-full transition-all duration-300 hover:bg-gray-100 ${
+              currentSection === 'contact' 
+                ? 'bg-black text-white hover:bg-gray-800' 
+                : 'text-black hover:text-gray-700'
+            }`}
+          >
+            <Mail size={20} />
+            <span className="font-medium text-lg">Contact</span>
+          </button>
 
           {/* Admin button - positioned absolutely to the right */}
           {/*<button

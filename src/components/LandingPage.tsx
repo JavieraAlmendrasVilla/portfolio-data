@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { ChevronLeft, ChevronRight, Linkedin, Github, ExternalLink } from 'lucide-react';
 import { Project } from '../types';
 
@@ -14,6 +14,15 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
   // Split projects into featured and non-featured
   const featuredProjects = projects.filter(project => project.featured);
   const additionalProjects = projects.filter(project => !project.featured);
+  
+  // Get all unique technologies from all projects
+  const allTechnologies = useMemo(() => {
+    const techSet = new Set<string>();
+    projects.forEach(project => {
+      project.technologies.forEach(tech => techSet.add(tech));
+    });
+    return Array.from(techSet).sort();
+  }, [projects]);
   
   const maxIndex = Math.max(0, featuredProjects.length - projectsPerView);
 
@@ -47,16 +56,19 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
         <p className="text-lg text-gray-500 mb-2">Technical University of Munich (TUM)</p>
         <p className="text-lg text-gray-500 mb-6">Based in Germany</p>
         
-        {/* Skills */}
-        <div className="flex flex-wrap justify-center gap-3 max-w-2xl mx-auto">
-          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">Python</span>
-          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">SQL</span>
-          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">R</span>
-          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">FastAPI</span>
-          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">LangChain</span>
-          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">Machine Learning</span>
-          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">Data Visualization</span>
-          <span className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">LLMs</span>
+        {/* Technical Skills */}
+        <div className="mb-6">
+          <h3 className="text-xl font-semibold text-gray-700 mb-4">Technical Skills</h3>
+          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+            {allTechnologies.map((tech, index) => (
+              <span 
+                key={index}
+                className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
