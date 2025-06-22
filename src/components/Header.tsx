@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { User, FolderOpen, Settings, ChevronDown, Mail, FileText } from 'lucide-react';
+import { User, FolderOpen, Settings, ChevronDown, Mail, FileText, Home } from 'lucide-react';
 
 interface HeaderProps {
   currentSection: 'landing' | 'about' | 'projects' | 'category' | 'contact' | 'posts';
@@ -38,6 +38,18 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="max-w-7xl mx-auto px-6 py-4">
         <nav className="flex justify-center space-x-8 relative">
           <button
+            onClick={() => onNavigationChange('projects')}
+            className={`flex items-center space-x-2 px-6 py-2 rounded-full transition-all duration-300 hover:bg-gray-100 ${
+              currentSection === 'landing' 
+                ? 'bg-black text-white hover:bg-gray-800' 
+                : 'text-black hover:text-gray-700'
+            }`}
+          >
+            <Home size={20} />
+            <span className="font-medium text-lg">Home</span>
+          </button>
+
+          <button
             onClick={() => onNavigationChange('about')}
             className={`flex items-center space-x-2 px-6 py-2 rounded-full transition-all duration-300 hover:bg-gray-100 ${
               currentSection === 'about' 
@@ -53,7 +65,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={() => setShowDropdown(!showDropdown)}
               className={`flex items-center space-x-2 px-6 py-2 rounded-full transition-all duration-300 hover:bg-gray-100 ${
-                currentSection === 'projects' || currentSection === 'landing' || currentSection === 'category'
+                currentSection === 'projects' || currentSection === 'category'
                   ? 'bg-black text-white hover:bg-gray-800' 
                   : 'text-black hover:text-gray-700'
               }`}
