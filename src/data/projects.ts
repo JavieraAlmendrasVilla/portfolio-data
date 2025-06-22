@@ -91,7 +91,7 @@ export const projects: Project[] = [
   featured: False
 },
 {
-id: '6',
+id: '7',
   title: 'Autimatidata project from Google Data Analytics Certificate',
   description: 'Build a Machine Learning model to predict the fare amount of a taxi trip',
   longDescription: 'This project showcase the skills learn in the Google Data Analytics Certificate. The goal was to build a machine learning model to predict the fare amount of a taxi trip using the dataset TLC 2017. The project involved data cleaning, feature engineering, exploratory data analysis, and model building using regression techniques.',

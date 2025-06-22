@@ -356,6 +356,107 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
             </div>
           )}
 
+          {/* Recent Projects Section */}
+          {recentProjects.length > 0 && (
+            <div className="w-full max-w-6xl mb-16">
+              <div className="mb-8">
+                <div className="flex items-center justify-center space-x-2 mb-2">
+                  <Clock size={20} className="text-gray-600" />
+                  <h2 className="text-3xl font-semibold text-center">Latest Projects</h2>
+                </div>
+                <p className="text-center text-gray-600">My most recent work</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {recentProjects.map((project, index) => (
+                  <div
+                    key={project.id}
+                    className="group relative"
+                  >
+                    {/* Recent badge */}
+                    {index === 0 && (
+                      <div className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full z-10 font-medium">
+                        Latest
+                      </div>
+                    )}
+
+                    <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group-hover:scale-105 h-full flex flex-col">
+                      <div
+                        className="h-48 bg-gray-200 cursor-pointer flex-shrink-0 relative"
+                        onClick={() => onProjectSelect(project)}
+                      >
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover"
+                        />
+                        {project.featured && (
+                          <div className="absolute top-2 left-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded-full font-medium">
+                            Featured
+                          </div>
+                        )}
+                      </div>
+                      <div className="p-6 flex-1 flex flex-col">
+                        <h3
+                          className="text-lg font-semibold mb-2 group-hover:text-gray-600 transition-colors cursor-pointer line-clamp-2"
+                          onClick={() => onProjectSelect(project)}
+                        >
+                          {project.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
+                          {project.description}
+                        </p>
+
+                        {/* Category */}
+                        <div className="mb-3">
+                          <span className="inline-block bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">
+                            {project.category}
+                          </span>
+                        </div>
+
+                        {/* Main Technologies */}
+                        <div className="mb-4">
+                          <div className="flex flex-wrap gap-1">
+                            {project.technologies.slice(0, 2).map((tech, index) => (
+                              <span
+                                key={index}
+                                className="bg-black text-white text-xs px-2 py-1 rounded-full"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                            {project.technologies.length > 2 && (
+                              <span className="text-xs text-gray-500 px-2 py-1">
+                                +{project.technologies.length - 2}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Code Link */}
+                        {project.codeUrl && (
+                          <div className="pt-3 border-t border-gray-100 mt-auto">
+                            <a
+                              href={project.codeUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="flex items-center space-x-1 text-black hover:text-gray-600 transition-colors text-sm font-medium"
+                            >
+                              <Github size={16} />
+                              <span>View Code</span>
+                              <ExternalLink size={12} />
+                            </a>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Latest Posts Section - Only show if there are posts */}
           {latestPosts.length > 0 && (
             <div className="w-full max-w-4xl mb-16">
@@ -498,106 +599,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
             </div>
           )}
 
-          {/* Recent Projects Section */}
-          {recentProjects.length > 0 && (
-            <div className="w-full max-w-6xl mb-16">
-              <div className="mb-8">
-                <div className="flex items-center justify-center space-x-2 mb-2">
-                  <Clock size={20} className="text-gray-600" />
-                  <h2 className="text-3xl font-semibold text-center">Latest Projects</h2>
-                </div>
-                <p className="text-center text-gray-600">My most recent work</p>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {recentProjects.map((project, index) => (
-                  <div
-                    key={project.id}
-                    className="group relative"
-                  >
-                    {/* Recent badge */}
-                    {index === 0 && (
-                      <div className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full z-10 font-medium">
-                        Latest
-                      </div>
-                    )}
-                    
-                    <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group-hover:scale-105 h-full flex flex-col">
-                      <div 
-                        className="h-48 bg-gray-200 cursor-pointer flex-shrink-0 relative"
-                        onClick={() => onProjectSelect(project)}
-                      >
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover"
-                        />
-                        {project.featured && (
-                          <div className="absolute top-2 left-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded-full font-medium">
-                            Featured
-                          </div>
-                        )}
-                      </div>
-                      <div className="p-6 flex-1 flex flex-col">
-                        <h3 
-                          className="text-lg font-semibold mb-2 group-hover:text-gray-600 transition-colors cursor-pointer line-clamp-2"
-                          onClick={() => onProjectSelect(project)}
-                        >
-                          {project.title}
-                        </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
-                          {project.description}
-                        </p>
-                        
-                        {/* Category */}
-                        <div className="mb-3">
-                          <span className="inline-block bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">
-                            {project.category}
-                          </span>
-                        </div>
 
-                        {/* Main Technologies */}
-                        <div className="mb-4">
-                          <div className="flex flex-wrap gap-1">
-                            {project.technologies.slice(0, 2).map((tech, index) => (
-                              <span
-                                key={index}
-                                className="bg-black text-white text-xs px-2 py-1 rounded-full"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                            {project.technologies.length > 2 && (
-                              <span className="text-xs text-gray-500 px-2 py-1">
-                                +{project.technologies.length - 2}
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                        
-                        {/* Code Link */}
-                        {project.codeUrl && (
-                          <div className="pt-3 border-t border-gray-100 mt-auto">
-                            <a
-                              href={project.codeUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={(e) => e.stopPropagation()}
-                              className="flex items-center space-x-1 text-black hover:text-gray-600 transition-colors text-sm font-medium"
-                            >
-                              <Github size={16} />
-                              <span>View Code</span>
-                              <ExternalLink size={12} />
-                            </a>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
 
           {/* Social Links Footer */}
           <div className="mt-auto pb-8">
