@@ -22,8 +22,17 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center px-6">
-      {/* Name and Title */}
+      {/* Profile Picture and Name Section */}
       <div className="text-center mb-16">
+        {/* Profile Picture */}
+        <div className="mb-8">
+          <img
+            src="https://raw.githubusercontent.com/JavieraAlmendrasVilla/portfolio-data/main/src/images/CV.jpeg"
+            alt="Javiera Almendras Villa"
+            className="w-40 h-40 rounded-full mx-auto object-cover shadow-lg"
+          />
+        </div>
+        
         <h1 className="text-8xl md:text-9xl font-bold mb-4 tracking-tight">
           JAVIERA ALMENDRAS VILLA
         </h1>
