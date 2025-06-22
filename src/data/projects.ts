@@ -89,5 +89,19 @@ export const projects: Project[] = [
   category: 'Data Analytics',
   codeUrl: 'https://github.com/JavieraAlmendrasVilla/AntiFraudProject',
   featured: False
+},
+{
+id: '6',
+  title: 'Autimatidata project from Google Data Analytics Certificate',
+  description: 'Build a Machine Learning model to predict the fare amount of a taxi trip',
+  longDescription: '',
+  image: 'https://images.pexels.com/photos/6266297/pexels-photo-6266297.jpeg?auto=compress&cs=tinysrgb&w=800',
+  images: [
+    'https://images.pexels.com/photos/6266297/pexels-photo-6266297.jpeg?auto=compress&cs=tinysrgb&w=800',
+  ],
+  technologies: ['Python', 'Pandas', 'Numpy', 'Regression', 'ML', 'A/B Testing', 'Statistics'],
+  category: 'Data Analytics',
+  codeUrl: 'https://github.com/JavieraAlmendrasVilla/Automatidata',
+  featured: False
 }
 ];
