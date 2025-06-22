@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { ChevronLeft, ChevronRight, Linkedin, Github, ExternalLink, Clock, Calendar } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Linkedin, Github, ExternalLink, Clock, Calendar, FolderOpen } from 'lucide-react';
 import { Project } from '../types';
 
 interface LandingPageProps {
@@ -31,6 +31,26 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
     });
     return Array.from(techSet).sort();
   }, [projects]);
+
+  // Group projects by category for sidebar
+  const projectsByCategory = useMemo(() => {
+    const grouped: { [key: string]: Project[] } = {};
+    projects.forEach(project => {
+      if (!grouped[project.category]) {
+        grouped[project.category] = [];
+      }
+      grouped[project.category].push(project);
+    });
+    
+    // Sort categories alphabetically and projects within each category by ID (newest first)
+    const sortedCategories = Object.keys(grouped).sort();
+    const result: { [key: string]: Project[] } = {};
+    sortedCategories.forEach(category => {
+      result[category] = grouped[category].sort((a, b) => parseInt(b.id) - parseInt(a.id));
+    });
+    
+    return result;
+  }, [projects]);
   
   const maxIndex = Math.max(0, featuredProjects.length - projectsPerView);
 
@@ -59,37 +79,54 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
             </button>
           </div>
           
-          <div className="space-y-3 max-h-[calc(100vh-200px)] overflow-y-auto">
-            {projects.map((project) => (
-              <div
-                key={project.id}
-                onClick={() => {
-                  onProjectSelect(project);
-                  setSidebarOpen(false);
-                }}
-                className="p-4 border border-gray-200 rounded-lg hover:border-black hover:shadow-md transition-all cursor-pointer group"
-              >
-                <div className="flex items-start space-x-3">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-12 h-12 object-cover rounded-lg flex-shrink-0"
-                  />
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-medium text-sm group-hover:text-gray-600 transition-colors line-clamp-2">
-                      {project.title}
-                    </h4>
-                    <div className="flex items-center space-x-2 mt-1">
-                      <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">
-                        {project.category}
-                      </span>
-                      {project.featured && (
-                        <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">
-                          Featured
-                        </span>
-                      )}
+          <div className="space-y-6 max-h-[calc(100vh-200px)] overflow-y-auto">
+            {Object.entries(projectsByCategory).map(([category, categoryProjects]) => (
+              <div key={category} className="space-y-3">
+                {/* Category Header */}
+                <div className="flex items-center space-x-2 pb-2 border-b border-gray-200">
+                  <FolderOpen size={16} className="text-gray-600" />
+                  <h4 className="font-semibold text-gray-800">{category}</h4>
+                  <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+                    {categoryProjects.length}
+                  </span>
+                </div>
+                
+                {/* Projects in Category */}
+                <div className="space-y-2 ml-6">
+                  {categoryProjects.map((project) => (
+                    <div
+                      key={project.id}
+                      onClick={() => {
+                        onProjectSelect(project);
+                        setSidebarOpen(false);
+                      }}
+                      className="p-3 border border-gray-100 rounded-lg hover:border-black hover:shadow-md transition-all cursor-pointer group"
+                    >
+                      <div className="flex items-start space-x-3">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-10 h-10 object-cover rounded-lg flex-shrink-0"
+                        />
+                        <div className="flex-1 min-w-0">
+                          <h5 className="font-medium text-sm group-hover:text-gray-600 transition-colors line-clamp-2">
+                            {project.title}
+                          </h5>
+                          <div className="flex items-center space-x-2 mt-1">
+                            {project.featured && (
+                              <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">
+                                Featured
+                              </span>
+                            )}
+                            <span className="text-xs text-gray-500">
+                              {project.technologies.slice(0, 2).join(', ')}
+                              {project.technologies.length > 2 && '...'}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             ))}
