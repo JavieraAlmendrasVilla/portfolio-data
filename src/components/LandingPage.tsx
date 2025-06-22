@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { ChevronLeft, ChevronRight, Linkedin, Github, ExternalLink, Clock, Calendar, FolderOpen, ChevronDown } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Linkedin, Github, ExternalLink, Clock, Calendar, FolderOpen, ChevronDown, ArrowRight, FileText } from 'lucide-react';
 import { Project } from '../types';
+import { posts } from '../data/posts';
 
 interface LandingPageProps {
   projects: Project[];
@@ -23,6 +24,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
       .sort((a, b) => parseInt(b.id) - parseInt(a.id))
       .slice(0, 3);
   }, [projects]);
+
+  // Get latest posts (published and upcoming) - only show if there are posts
+  const latestPosts = useMemo(() => {
+    if (posts.length === 0) return [];
+    return [...posts]
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .slice(0, 3);
+  }, []);
   
   // Get all unique technologies from all projects
   const allTechnologies = useMemo(() => {
@@ -71,6 +80,15 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
       newExpanded.add(category);
     }
     setExpandedCategories(newExpanded);
+  };
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric' 
+    });
   };
 
   return (
@@ -335,6 +353,148 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
                   ))}
                 </div>
               )}
+            </div>
+          )}
+
+          {/* Latest Posts Section - Only show if there are posts */}
+          {latestPosts.length > 0 && (
+            <div className="w-full max-w-4xl mb-16">
+              <div className="mb-8">
+                <div className="flex items-center justify-center space-x-2 mb-2">
+                  <FileText size={20} className="text-gray-600" />
+                  <h2 className="text-3xl font-semibold text-center">Latest Posts</h2>
+                </div>
+                <p className="text-center text-gray-600">Recent thoughts and insights</p>
+              </div>
+              
+              <div className="space-y-8">
+                {latestPosts.map((post, index) => (
+                  <div
+                    key={post.id}
+                    className={`group relative ${index === 0 ? 'mb-12' : ''}`}
+                  >
+                    {/* Published/Coming Soon badge */}
+                    <div className={`absolute -top-2 -right-2 text-white text-xs px-3 py-1 rounded-full z-10 font-medium ${
+                      post.published ? 'bg-green-500' : 'bg-orange-500'
+                    }`}>
+                      {post.published ? 'Published' : 'Coming Soon'}
+                    </div>
+                    
+                    {/* Featured post (first one) - larger layout */}
+                    {index === 0 ? (
+                      <div className={`bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group-hover:scale-[1.02] ${
+                        !post.published ? 'opacity-75' : ''
+                      }`}>
+                        <div className="md:flex">
+                          <div className="md:w-1/2 h-64 md:h-auto bg-gray-200 cursor-pointer relative">
+                            <img
+                              src={post.image}
+                              alt={post.title}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div className="md:w-1/2 p-8 flex flex-col justify-center">
+                            <div className="flex items-center justify-between mb-4">
+                              <span className="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full font-medium">
+                                {post.category}
+                              </span>
+                              <div className="flex items-center text-gray-500 text-sm">
+                                <Clock size={14} className="mr-1" />
+                                {post.readTime}
+                              </div>
+                            </div>
+                            
+                            <h3 className="text-2xl font-bold mb-4 group-hover:text-gray-600 transition-colors cursor-pointer">
+                              {post.title}
+                            </h3>
+                            <p className="text-gray-600 leading-relaxed mb-6">
+                              {post.excerpt}
+                            </p>
+                            
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center text-gray-500 text-sm">
+                                <Calendar size={14} className="mr-1" />
+                                {formatDate(post.date)}
+                              </div>
+                              
+                              <div className={`flex items-center font-medium transition-colors ${
+                                post.published 
+                                  ? 'text-black group-hover:text-gray-600' 
+                                  : 'text-gray-400'
+                              }`}>
+                                <span className="mr-2">
+                                  {post.published ? 'Read More' : 'Coming Soon'}
+                                </span>
+                                <ArrowRight size={16} className={post.published ? 'group-hover:translate-x-1 transition-transform' : ''} />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      /* Other posts - smaller layout */
+                      <div className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 group-hover:scale-[1.01] ${
+                        !post.published ? 'opacity-75' : ''
+                      }`}>
+                        <div className="md:flex">
+                          <div className="md:w-1/3 h-48 md:h-32 bg-gray-200 cursor-pointer relative">
+                            <img
+                              src={post.image}
+                              alt={post.title}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div className="md:w-2/3 p-6 flex flex-col justify-center">
+                            <div className="flex items-center justify-between mb-3">
+                              <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full font-medium">
+                                {post.category}
+                              </span>
+                              <div className="flex items-center text-gray-500 text-sm">
+                                <Clock size={12} className="mr-1" />
+                                {post.readTime}
+                              </div>
+                            </div>
+                            
+                            <h3 className="text-lg font-semibold mb-2 group-hover:text-gray-600 transition-colors cursor-pointer line-clamp-2">
+                              {post.title}
+                            </h3>
+                            <p className="text-gray-600 text-sm leading-relaxed mb-3 line-clamp-2">
+                              {post.excerpt}
+                            </p>
+                            
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center text-gray-500 text-sm">
+                                <Calendar size={12} className="mr-1" />
+                                {formatDate(post.date)}
+                              </div>
+                              
+                              <div className={`flex items-center text-sm font-medium transition-colors ${
+                                post.published 
+                                  ? 'text-black group-hover:text-gray-600' 
+                                  : 'text-gray-400'
+                              }`}>
+                                <span className="mr-1">
+                                  {post.published ? 'Read More' : 'Coming Soon'}
+                                </span>
+                                <ArrowRight size={14} className={post.published ? 'group-hover:translate-x-1 transition-transform' : ''} />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              
+              {/* View All Posts Link */}
+              <div className="text-center mt-8">
+                <button className="inline-flex items-center space-x-2 bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 font-medium">
+                  <FileText size={20} />
+                  <span>View All Posts</span>
+                  <ArrowRight size={16} />
+                </button>
+              </div>
             </div>
           )}
 
