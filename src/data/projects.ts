@@ -29,8 +29,21 @@ export const projects: Project[] = [
   category: 'IBM Data Engineering',
   codeUrl: 'https://lookerstudio.google.com/s/gv50gGMZ1AM'
 },
+{
+  id: '3',
+  title: 'Total distance and total amount TLC 2017 in Tableau',
+  description: 'Built interactive dashboard to analyse taxi trip data',
+  longDescription: 'Created a dashboard using Tableau to visualize trip distance (mils) and the total revenue collected (USD) per trip for the TLC 2017 data. The dashboard includes a scatterplot highliting the presence of trips with 0 distance that still have a fare amount. These trips are likely very short in distance, it would be recommended to separate short and long trip to change their metrics and gain deeper insights. This project was developed as part of the Google Advanced Data Analytics certificate.',
+  image: 'https://images.pexels.com/photos/2218914/pexels-photo-2218914.jpeg?auto=compress&cs=tinysrgb&w=800',
+  images: [
+    'https://raw.githubusercontent.com/JavieraAlmendrasVilla/portfolio-data/main/src/images/tableau_viz.png',
+  ],
+  technologies: ['Tableau', 'Data Visualization'],
+  category: 'Google Advanced Data Analytics',
+  codeUrl: 'https://public.tableau.com/views/TotaldistanceandtotalamountTLC2017_17505767606720/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link'
+},
   {
-    id: '3',
+    id: '4',
     title: 'Predicting Smoking Habits with Random Forests',
     description: 'Used health biometrics to model smoking status with 75% accuracy',
     longDescription: 'Built a Random Forest model to predict smoking habits using a large-scale health dataset from the South Korean government (55,692 observations, 27 features). After comprehensive data cleaning and exploration in R, I engineered features like blood pressure, cholesterol levels, and dental health to train and evaluate the model. The final classifier achieved ~75% accuracy with strong AUC scores (0.86 test, 0.84 train). Visualized model performance using ROC curves and confusion matrices.',
@@ -44,7 +57,7 @@ export const projects: Project[] = [
     codeUrl: 'https://github.com/JavieraAlmendrasVilla/Case-2-Random-Forest-Model'
   },
   {
-    id: '4',
+    id: '5',
     title: 'Oral Health Analysis by Smoking and Gender',
     description: 'Statistical analysis of dental caries using national health data',
     longDescription: 'Conducted a comprehensive statistical analysis on a public health dataset (55,692 observations) from the South Korean government, focusing on oral health indicators like dental caries and tartar. Explored relationships between gender, age, and smoking habits using Welch\'s t-test and Fisher\'s exact test. Found that men and smokers are statistically more likely to develop caries. Visualized gender imbalance, age distribution, and caries prevalence using bar plots and boxplots. Concluded a strong association between smoking and oral disease risk.',
@@ -59,7 +72,7 @@ export const projects: Project[] = [
     codeUrl: 'https://github.com/JavieraAlmendrasVilla/Case-1-Oral-Health-data'
   },
   {
-  id: '',
+  id: '6',
   title: 'Fraud Detection Analysis with SQLite & Python',
   description: 'Identified transaction anomalies and fraud patterns from financial data',
   longDescription: 'Analyzed customer and merchant transaction data using Python and SQLite to detect fraudulent activity and suspicious patterns. Built a dynamic fraud analysis pipeline that flagged 45 high-risk transactions using anomaly scoring and rule-based logic. Visualized transaction trends across categories such as food, travel, and retail. Identified high-risk customer behaviors, unusual merchant activity, and customer segments prone to fraud. Leveraged SQL queries and Pandas for insight extraction, and implemented a modular script to update results with new transaction data.',
