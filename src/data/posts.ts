@@ -109,44 +109,5 @@ If you're considering a similar transition, I'd love to hear about your journey.
     image: 'https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800',
     published: true
   },
-  {
-    id: '2',
-    title: 'Building a Multilingual AI Assistant: Lessons from the Dental Industry',
-    excerpt: 'Exploring the challenges and solutions in creating conversational AI that works across languages and cultures, with real-world insights from healthcare applications.',
-    date: '2025-01-20',
-    readTime: '12 min read',
-    category: 'AI & Machine Learning',
-    image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
-    published: false
-  },
-  {
-    id: '3',
-    title: 'Random Forests in Healthcare: Predicting Smoking Habits from Biometric Data',
-    excerpt: 'A deep dive into using machine learning for health prediction, including data preprocessing, model selection, and ethical considerations.',
-    date: '2025-01-25',
-    readTime: '15 min read',
-    category: 'Data Science',
-    image: 'https://images.pexels.com/photos/2418883/pexels-photo-2418883.jpeg?auto=compress&cs=tinysrgb&w=800',
-    published: false
-  },
-  {
-    id: '4',
-    title: 'The Ethics of AI in Healthcare: Balancing Innovation with Patient Privacy',
-    excerpt: 'Examining the ethical challenges and considerations when implementing AI solutions in healthcare settings, with practical guidelines for responsible development.',
-    date: '2025-02-01',
-    readTime: '10 min read',
-    category: 'AI Ethics',
-    image: 'https://images.pexels.com/photos/3825539/pexels-photo-3825539.jpeg?auto=compress&cs=tinysrgb&w=800',
-    published: false
-  },
-  {
-    id: '5',
-    title: 'Data Pipeline Architecture: From Raw Data to Business Insights',
-    excerpt: 'A comprehensive guide to building robust data pipelines, covering ETL processes, data quality, and scalable architecture patterns.',
-    date: '2025-02-10',
-    readTime: '14 min read',
-    category: 'Data Engineering',
-    image: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=800',
-    published: false
-  }
+
 ];
