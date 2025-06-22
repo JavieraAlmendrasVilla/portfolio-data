@@ -35,7 +35,7 @@ export const projects: Project[] = [
   id: '3',
   title: 'Total distance and total amount TLC 2017 in Tableau',
   description: 'Built interactive dashboard to analyse taxi trip data',
-  longDescription: 'Created a dashboard using Tableau to visualize trip distance (mils) and the total revenue collected (USD) per trip for the TLC 2017 data. The dashboard includes a scatterplot highliting the presence of trips with 0 distance that still have a fare amount. These trips are likely very short in distance, it would be recommended to separate short and long trip to change their metrics and gain deeper insights. This project was developed as part of the Google Advanced Data Analytics certificate.',
+  longDescription: 'Created a dashboard using Tableau to visualize trip distance (miles) and the total revenue collected (USD) per trip for the TLC 2017 data. The dashboard includes a scatterplot highliting the presence of trips with 0 distance that still have a fare amount. These trips are likely very short in distance, it would be recommended to separate short and long trip to change their metrics and gain deeper insights. This project was developed as part of the Google Advanced Data Analytics certificate.',
   image: 'https://images.pexels.com/photos/2447531/pexels-photo-2447531.jpeg?auto=compress&cs=tinysrgb&w=800',
   images: [
     'https://raw.githubusercontent.com/JavieraAlmendrasVilla/portfolio-data/main/src/images/tableau_viz.png',
