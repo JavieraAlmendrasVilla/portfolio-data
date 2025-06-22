@@ -1,7 +1,7 @@
 import { Post } from '../types';
 
 export const posts: Post[] = [
-  {
+  /*{
     id: '1',
     title: 'From Dentist to Data Scientist: My Career Transition Journey',
     excerpt: 'The unexpected path from healthcare to tech, and how my medical background gives me a unique perspective on data problems.',
@@ -108,6 +108,6 @@ If you're considering a similar transition, I'd love to hear about your journey.
     category: 'Career',
     image: 'https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800',
     published: true
-  },
+  }, */
 
 ];
