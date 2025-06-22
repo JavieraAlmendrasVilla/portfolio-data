@@ -74,7 +74,7 @@ export const projects: Project[] = [
     technologies: ['R', 'ggplot2', 'data.table', 'tidyr', 'magrittr'],
     category: 'Data Analytics',
     codeUrl: 'https://github.com/JavieraAlmendrasVilla/Case-1-Oral-Health-data',
-    featured: true
+    featured: False
   },
   {
   id: '6',
