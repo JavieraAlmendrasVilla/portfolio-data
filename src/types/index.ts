@@ -17,3 +17,15 @@ export interface AboutSection {
   content: string | string[];
   image?: string;
 }
+
+export interface Post {
+  id: string;
+  title: string;
+  excerpt: string;
+  content?: string;
+  date: string;
+  readTime: string;
+  category: string;
+  image: string;
+  published: boolean;
+}
