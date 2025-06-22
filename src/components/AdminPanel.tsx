@@ -88,7 +88,8 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
       images: ['https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800'],
       technologies: ['Technology'],
       category: 'Category',
-      codeUrl: 'https://github.com/username/repository'
+      codeUrl: 'https://github.com/username/repository',
+      featured: false
     };
     onUpdateProjects([...projects, newProject]);
   };
@@ -157,7 +158,14 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
                     onClick={() => setEditingProject(project)}
                   >
                     <div>
-                      <h4 className="font-medium">{project.title}</h4>
+                      <div className="flex items-center space-x-2">
+                        <h4 className="font-medium">{project.title}</h4>
+                        {project.featured && (
+                          <span className="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">
+                            Featured
+                          </span>
+                        )}
+                      </div>
                       <p className="text-sm text-gray-600">{project.category}</p>
                     </div>
                     <div className="flex space-x-1">
@@ -220,15 +228,29 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
                       </div>
                     </div>
 
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Code URL</label>
-                      <input
-                        type="url"
-                        value={editingProject.codeUrl || ''}
-                        onChange={(e) => setEditingProject({ ...editingProject, codeUrl: e.target.value })}
-                        placeholder="https://github.com/username/repository"
-                        className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
-                      />
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium mb-2">Code URL</label>
+                        <input
+                          type="url"
+                          value={editingProject.codeUrl || ''}
+                          onChange={(e) => setEditingProject({ ...editingProject, codeUrl: e.target.value })}
+                          placeholder="https://github.com/username/repository"
+                          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+                        />
+                      </div>
+                      <div>
+                        <label className="flex items-center space-x-2 text-sm font-medium mb-2">
+                          <input
+                            type="checkbox"
+                            checked={editingProject.featured || false}
+                            onChange={(e) => setEditingProject({ ...editingProject, featured: e.target.checked })}
+                            className="rounded border-gray-300 text-black focus:ring-black"
+                          />
+                          <span>Featured Project</span>
+                        </label>
+                        <p className="text-xs text-gray-500">Featured projects appear in the main carousel on the landing page</p>
+                      </div>
                     </div>
 
                     <div>

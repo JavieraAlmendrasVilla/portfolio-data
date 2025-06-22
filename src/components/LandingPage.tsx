@@ -11,9 +11,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ projects, onProjectSelect }) 
   const [currentIndex, setCurrentIndex] = useState(0);
   const projectsPerView = 3;
   
-  // Split projects into featured (first 6) and additional (rest)
-  const featuredProjects = projects.slice(0, 6);
-  const additionalProjects = projects.slice(6);
+  // Split projects into featured and non-featured
+  const featuredProjects = projects.filter(project => project.featured);
+  const additionalProjects = projects.filter(project => !project.featured);
   
   const maxIndex = Math.max(0, featuredProjects.length - projectsPerView);
 

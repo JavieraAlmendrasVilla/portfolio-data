@@ -8,6 +8,7 @@ export interface Project {
   technologies: string[];
   category: string;
   codeUrl?: string;
+  featured?: boolean;
 }
 
 export interface AboutSection {

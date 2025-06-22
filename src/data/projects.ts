@@ -13,7 +13,8 @@ export const projects: Project[] = [
     ],
     technologies: ['FastAPI', 'LangChain', 'Qwen 2.5', 'SQL', 'Python'],
     category: 'Work in Progress',
-    codeUrl: 'https://github.com/JavieraAlmendrasVilla/dental-management-system'
+    codeUrl: 'https://github.com/JavieraAlmendrasVilla/dental-management-system',
+    featured: true
   },
 {
   id: '2',
@@ -27,7 +28,8 @@ export const projects: Project[] = [
   ],
   technologies: ['Google Looker Studio', 'Data Visualization'],
   category: 'IBM Data Engineering',
-  codeUrl: 'https://lookerstudio.google.com/s/gv50gGMZ1AM'
+  codeUrl: 'https://lookerstudio.google.com/s/gv50gGMZ1AM',
+  featured: true
 },
 {
   id: '3',
@@ -40,7 +42,8 @@ export const projects: Project[] = [
   ],
   technologies: ['Tableau', 'Data Visualization'],
   category: 'Google Advanced Data Analytics',
-  codeUrl: 'https://public.tableau.com/views/TotaldistanceandtotalamountTLC2017_17505767606720/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link'
+  codeUrl: 'https://public.tableau.com/views/TotaldistanceandtotalamountTLC2017_17505767606720/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
+  featured: true
 },
   {
     id: '4',
@@ -54,7 +57,8 @@ export const projects: Project[] = [
     ],
     technologies: ['R', 'randomForest', 'tidyverse', 'data.table', 'ggroc'],
     category: 'Data Science',
-    codeUrl: 'https://github.com/JavieraAlmendrasVilla/Case-2-Random-Forest-Model'
+    codeUrl: 'https://github.com/JavieraAlmendrasVilla/Case-2-Random-Forest-Model',
+    featured: true
   },
   {
     id: '5',
@@ -69,7 +73,8 @@ export const projects: Project[] = [
     ],
     technologies: ['R', 'ggplot2', 'data.table', 'tidyr', 'magrittr'],
     category: 'Data Analytics',
-    codeUrl: 'https://github.com/JavieraAlmendrasVilla/Case-1-Oral-Health-data'
+    codeUrl: 'https://github.com/JavieraAlmendrasVilla/Case-1-Oral-Health-data',
+    featured: true
   },
   {
   id: '6',
@@ -81,10 +86,8 @@ export const projects: Project[] = [
     'https://images.pexels.com/photos/6266297/pexels-photo-6266297.jpeg?auto=compress&cs=tinysrgb&w=800',
   ],
   technologies: ['Python', 'Pandas', 'SQLite3', 'SQL'],
-  category: 'Data Analytics'
-,codeUrl: 'https://github.com/JavieraAlmendrasVilla/AntiFraudProject'
+  category: 'Data Analytics',
+  codeUrl: 'https://github.com/JavieraAlmendrasVilla/AntiFraudProject',
+  featured: true
 }
-
-
-
 ];
